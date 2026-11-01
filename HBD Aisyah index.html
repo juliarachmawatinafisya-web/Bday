@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy 19th Birthday Aisyah Putri S.</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1e1e2f, #2d1b36);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+            perspective: 1500px;
+        }
+
+        /* Wadah Buku */
+        .book-container {
+            width: 360px;
+            height: 480px;
+            position: relative;
+            cursor: pointer;
+            transform-style: preserve-3d;
+        }
+
+        .page {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            transform-origin: left;
+            transition: transform 1.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+            transform-style: preserve-3d;
+            border-radius: 12px;
+        }
+
+        /* Halaman Depan (Cover Buku) */
+        .cover {
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            text-align: center;
+            box-shadow: -5px 5px 25px rgba(0, 0, 0, 0.4);
+            z-index: 2;
+            border-left: 6px solid #d63384;
+        }
+
+        .cover h1 {
+            color: white;
+            font-size: 26px;
+            margin-bottom: 12px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.15);
+            font-weight: 600;
+        }
+
+        .cover p {
+            color: #fff0f5;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .tap-hint {
+            margin-top: 45px;
+            background: rgba(255, 255, 255, 0.25);
+            color: white;
+            padding: 9px 18px;
+            border-radius: 20px;
+            font-size: 12px;
+            animation: pulse 1.5s infinite;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Halaman Dalam (Isi Pesan Kesan) */
+        .inside-page {
+            background: #fffdfd;
+            padding: 35px 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: inset 15px 0 25px rgba(0, 0, 0, 0.04), 0 5px 25px rgba(0, 0, 0, 0.3);
+            z-index: 1;
+            text-align: left;
+            border-radius: 4px 12px 12px 4px;
+        }
+
+        .inside-page h2 {
+            color: #d63384;
+            font-size: 19px;
+            margin-bottom: 15px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .message-box {
+            font-size: 13px;
+            color: #555;
+            line-height: 1.7;
+            background: #fff5f8;
+            padding: 18px 15px;
+            border-radius: 10px;
+            border-left: 4px solid #d63384;
+        }
+
+        .message-box p {
+            margin-bottom: 6px;
+        }
+
+        .signature {
+            text-align: right;
+            font-weight: 600;
+            color: #d63384;
+            font-size: 13.5px;
+            margin-top: 10px;
+        }
+
+        /* Kelas untuk Animasi Buku Terbuka */
+        .book-container.open .cover {
+            transform: rotateY(-180deg);
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.05); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.8; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="book-container" id="birthdayBook" onclick="toggleBook()">
+        <!-- HALAMAN DALAM (ISI KARTU) -->
+        <div class="page inside-page">
+            <div>
+                <h2>✨ HAPPY BIRTHDAY TO AISYAH ✨</h2>
+                <div class="message-box">
+                    <p>• Selamat ulang tahun yang ke-19,</p>
+                    <p>• Ini adalah hari yang spesial.</p>
+                    <p>• Semoga kamu selalu diberikan kesehatan,</p>
+                    <p>• Kebahagiaan,</p>
+                    <p>• Dan kemudahan dalam segala hal.</p>
+                    <p>• Terima kasih atas semua momen baik selama ini.</p>
+                    <p>• Semoga harimu selalu luar biasa.</p>
+                    <p>• Sekali lagi, selamat ulang tahun untukmu!</p>
+                </div>
+            </div>
+            <div class="signature">
+                ~ Aisyah Putri S. ~
+            </div>
+        </div>
+
+        <!-- HALAMAN DEPAN (COVER BUKU) -->
+        <div class="page cover" id="bookCover">
+            <h1>HAPPY 19th BIRTHDAY</h1>
+            <p>TO AISYAH PUTRI S.</p>
+            <div class="tap-hint">👆 Ketuk untuk Membuka Buku</div>
+        </div>
+    </div>
+
+    <script>
+        let isOpen = false;
+
+        function toggleBook() {
+            const book = document.getElementById('birthdayBook');
+            isOpen = !isOpen;
+            
+            if (isOpen) {
+                book.classList.add('open');
+            } else {
+                book.classList.remove('open');
+            }
+        }
+    </script>
+
+</body>
+</html>
